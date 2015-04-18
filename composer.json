@@ -5,6 +5,17 @@
   "homepage": "https://github.com/degdigital/magento-order-lifecycle",
   "require": {
     "php": ">=5.3",
-    "magento-hackathon/magento-composer-installer": "*"
+    "magento-hackathon/magento-composer-installer": "*",
+    "ecomdev/ecomdev_phpunit": "*"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.firegento.com"
+    }
+  ],
+  "extra": {
+    "magento-root-dir": "../hackathon",
+    "magento-deploystrategy": "symlink"
   }
 }
