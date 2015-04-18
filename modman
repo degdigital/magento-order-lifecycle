@@ -1,2 +1,2 @@
-app/code/community/DEG/MagentoOrderLifecycle app/code/community/DEG/MagentoOrderLifecycle
-app/etc/modules/DEG_MagentoOrderLifecycle.xml app/etc/modules/DEG_MagentoOrderLifecycle.xml
+app/code/community/DEG/OrderLifecycle app/code/community/DEG/OrderLifecycle
+app/etc/modules/DEG_OrderLifecycle.xml app/etc/modules/DEG_OrderLifecycle.xml

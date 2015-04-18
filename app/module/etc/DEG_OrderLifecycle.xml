@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <DEG_MagentoOrderLifecycle>
+        <DEG_OrderLifecycle>
             <active>true</active>
             <codePool>community</codePool>
             <depends>
                 <Mage_Sales />
             </depends>
-        </DEG_MagentoOrderLifecycle>
+        </DEG_OrderLifecycle>
     </modules>
 </config>
