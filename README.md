@@ -23,4 +23,5 @@ Track everything and anything that is related to an order and write it so that i
 2. `CREATE USER 'hackathon'@'localhost' IDENTIFIED BY 'password123';`
 3. `GRANT ALL PRIVILEGES ON * . * TO 'hackathon'@'localhost';`
 4. `GRANT ALL PRIVILEGES ON * . * TO 'hackathon'@'%';`
-5. `n98-magerun.phar install --magentoVersionByName=magento-ce-1.9.1.0 --installationFolder=/var/magento/hackathon --dbHost=localhost --dbUser=hackathon --dbPass=password123 --baseUrl=http://hackathon.dev/`
+5. `quit`
+6. `n98-magerun.phar install --magentoVersionByName=magento-ce-1.9.1.0 --installationFolder=/var/magento/hackathon --dbHost=localhost --dbUser=hackathon --dbPass=password123 --baseUrl=http://hackathon.dev/`

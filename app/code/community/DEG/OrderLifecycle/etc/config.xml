@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <DEG_OrderLifecycle>
+            <version>1.0.0</version>
+        </DEG_OrderLifecycle>
+    </modules>
+    <global>
+        <helpers>
+            <deg_orderlifecycle>
+                <class>DEG_OrderLifecycle_Helper</class>
+            </deg_orderlifecycle>
+        </helpers>
+        <models>
+            <deg_orderlifecycle>
+                <class>DEG_OrderLifecycle_Model</class>
+            </deg_orderlifecycle>
+        </models>
+    </global>
+</config>
