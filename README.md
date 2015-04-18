@@ -9,8 +9,10 @@ Track everything and anything that is related to an order and write it so that i
 5. `cd /var/magento/magento-order-lifecycle`
 6. `vagrant up`
 
-The document root, Document on the VM will need to be set to /var/magento/hackathon
-The ServerName should be set to hackathon.dev
-Restart Apache
-
-Add hackathon.dev to your host machine's /etc/hosts file.
+1. cd /etc/httpd/conf.d
+2. sudo vi 25-magentovhost.conf
+3. Change DocumentRoot to /var/magento/hackathon
+4. Change Document to /var/magento/hackathon
+5. Change ServerName should be set to hackathon.dev
+6. Restart Apache
+7. Add hackathon.dev to your host machine's /etc/hosts file.
