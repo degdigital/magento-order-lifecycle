@@ -9,6 +9,7 @@ Track everything and anything that is related to an order and write it so that i
 5. `cd /var/magento/magento-order-lifecycle`
 6. `vagrant up`
 
+# Setup Apache
 1. cd /etc/httpd/conf.d
 2. sudo vi 25-magentovhost.conf
 3. Change DocumentRoot to /var/magento/hackathon
