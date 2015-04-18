@@ -1,0 +1,10 @@
+{
+  "name": "degdigital/magento-order-lifecycle",
+  "type": "magento-module",
+  "description": "Interface for adding data that pertains to the lifecycle of an order and its children.",
+  "homepage": "https://github.com/degdigital/magento-order-lifecycle",
+  "require": {
+    "php": ">=5.3",
+    "magento-hackathon/magento-composer-installer": "*"
+  }
+}
