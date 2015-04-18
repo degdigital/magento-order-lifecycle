@@ -7,4 +7,5 @@ Track everything and anything that is related to an order and write it so that i
 3. `cd /var/magento`
 4. `git clone https://github.com/degdigital/magento-order-lifecycle.git`
 5. `cd /var/magento/magento-order-lifecycle`
+6. `vagrant up`
 
