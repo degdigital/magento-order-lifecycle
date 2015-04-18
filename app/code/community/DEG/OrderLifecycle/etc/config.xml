@@ -6,11 +6,6 @@
         </DEG_OrderLifecycle>
     </modules>
     <global>
-        <blocks>
-            <deg_orderlifecycle>
-                <class>DEG_OrderLifecycle_Block</class>
-            </deg_orderlifecycle>
-        </blocks>
         <helpers>
             <deg_orderlifecycle>
                 <class>DEG_OrderLifecycle_Helper</class>
