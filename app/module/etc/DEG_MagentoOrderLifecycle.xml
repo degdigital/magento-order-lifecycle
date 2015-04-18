@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <DEG_MagentoOrderLifecycle>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Sales />
+            </depends>
+        </DEG_MagentoOrderLifecycle>
+    </modules>
+</config>
