@@ -27,12 +27,4 @@ class DEG_OrderLifecycle_Test_Model_Lifecycle_Event_Api_EventTest extends EcomDe
         $this->assertEquals('email',$apiEvent->getEmail());
     }
 
-    public function testGetFormattedEventData()
-    {
-        $apiEvent = new DEG_OrderLifecycle_Model_Lifecycle_Event_Api_Event();
-        $apiEvent->setUsername('name');
-        $formattedData = $apiEvent->getFormattedEventData();
-        $this->assertEquals($formattedData, 'username: name<br>');
-    }
-
 }

@@ -12,7 +12,7 @@ abstract class DEG_OrderLifecycle_Model_Lifecycle_Event extends Mage_Core_Model_
     {
         $formattedEventData = '';
         foreach ($this->getData() as $key => $value) {
-            $formattedEventData = $key .': '. $value . '<br>';
+            $formattedEventData .= $key .': '. $value . '<br>';
         }
 
         return $formattedEventData;
