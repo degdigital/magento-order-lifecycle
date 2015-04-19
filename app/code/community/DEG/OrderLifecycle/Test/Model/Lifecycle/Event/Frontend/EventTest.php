@@ -15,12 +15,5 @@ class DEG_OrderLifecycle_Test_Model_Lifecycle_Event_Frontend_EventTest extends E
         $this->assertEquals('127.0.0.1',$frontendEvent->getRemoteIp());
     }
 
-    public function testGetFormattedEventData()
-    {
-        $frontendEvent = new DEG_OrderLifecycle_Model_Lifecycle_Event_Frontend_Event();
-        $frontendEvent->setRemoteIp('127.0.0.1');
-        $formattedData = $frontendEvent->getFormattedEventData();
-        $this->assertEquals('remote_ip: 127.0.0.1<br>',$formattedData);
-    }
 
 }

@@ -4,7 +4,7 @@
 class DEG_OrderLifecycle_Tests_Model_Write_Adapter_Order_HistoryTest extends EcomDev_PHPUnit_Test_Case {
 
     public function testFlush(){
-        $event1 = new Varien_Object();
+        $event1 = new DEG_OrderLifecycle_Model_Lifecycle_Event_Admin_Event();
         $collection = new DEG_OrderLifecycle_Model_Lifecycle_Event_Collection();
         $collection->addEvent($event1);
 
@@ -26,13 +26,21 @@ class DEG_OrderLifecycle_Tests_Model_Write_Adapter_Order_HistoryTest extends Eco
         $history->expects($this->once())->method('save');
         $this->replaceByMock('model', 'sales/order_status_history', $history);
 
-        $adapter->flush($order, 'order');
+        $adapter->flush($order->getMockInstance(), 'order');
 
         $this->assertNull(Mage::registry(DEG_OrderLifecycle_Model_Lifecycle_Event_Collection::REGISTRY_LIFECYCLE_EVENT_COLLECTION));
 
     }
 
-
+    public function testFormatEventData()
+    {
+        $adapter = new DEG_OrderLifecycle_Model_Write_Adapter_Order_History();
+        $adminEvent = new DEG_OrderLifecycle_Model_Lifecycle_Event_Admin_Event();
+        $adminEvent->setUsername('name');
+        $adminEvent->setEmail('email');
+        $formattedData = $adapter->formatEventData($adminEvent);
+        $this->assertEquals($formattedData, 'username: name<br>email: email<br>');
+    }
 
     public function tearDown(){
         Mage::unregister(DEG_OrderLifecycle_Model_Lifecycle_Event_Collection::REGISTRY_LIFECYCLE_EVENT_COLLECTION);

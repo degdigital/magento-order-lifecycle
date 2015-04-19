@@ -18,8 +18,6 @@ class DEG_OrderLifecycle_Tests_Model_ObserverTest extends EcomDev_PHPUnit_Test_C
 
         $observer = new DEG_OrderLifecycle_Model_Observer();
         $observer->orderSavedEventFlush($observerObject);
-
-
     }
 
     public function testInvoiceSavedEventFlush(){
@@ -38,8 +36,6 @@ class DEG_OrderLifecycle_Tests_Model_ObserverTest extends EcomDev_PHPUnit_Test_C
 
         $observer = new DEG_OrderLifecycle_Model_Observer();
         $observer->invoiceSavedEventFlush($observerObject);
-
-
     }
 
 
@@ -63,7 +59,16 @@ class DEG_OrderLifecycle_Tests_Model_ObserverTest extends EcomDev_PHPUnit_Test_C
 
 
     public function testLifecycleEventToRegistryNoCollection(){
-        $event = new Varien_Object();
+        $user = new Mage_Admin_Model_User();
+
+        $adminSessionMock = $this->getModelMockBuilder('admin/session')
+            ->disableOriginalConstructor()
+            ->setMethods(array('getUser'))
+            ->getMock();
+        $adminSessionMock->expects($this->any())->method('getUser')->will($this->returnValue($user));
+        $this->replaceByMock('singleton', 'admin/session', $adminSessionMock);
+
+        $event = new DEG_OrderLifecycle_Model_Lifecycle_Event_Admin_Event();
         $observerObject = new Varien_Event_Observer();
         $observerObject->setDataObject($event);
 
@@ -76,7 +81,17 @@ class DEG_OrderLifecycle_Tests_Model_ObserverTest extends EcomDev_PHPUnit_Test_C
     }
 
     public function testLifecycleEventToRegistryExistingCollection(){
-        $event = new Varien_Object();
+
+        $user = new Mage_Admin_Model_User();
+
+        $adminSessionMock = $this->getModelMockBuilder('admin/session')
+            ->disableOriginalConstructor()
+            ->setMethods(array('getUser'))
+            ->getMock();
+        $adminSessionMock->expects($this->any())->method('getUser')->will($this->returnValue($user));
+        $this->replaceByMock('singleton', 'admin/session', $adminSessionMock);
+
+        $event = new DEG_OrderLifecycle_Model_Lifecycle_Event_Admin_Event();
         $observerObject = new Varien_Event_Observer();
         $observerObject->setDataObject($event);
         $collection = new DEG_OrderLifecycle_Model_Lifecycle_Event_Collection();

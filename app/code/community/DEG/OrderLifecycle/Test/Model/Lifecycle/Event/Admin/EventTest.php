@@ -27,13 +27,4 @@ class DEG_OrderLifecycle_Test_Model_Lifecycle_Event_Admin_EventTest extends Ecom
         $this->assertEquals('email',$adminEvent->getEmail());
     }
 
-    public function testGetFormattedEventData()
-    {
-        $adminEvent = new DEG_OrderLifecycle_Model_Lifecycle_Event_Admin_Event();
-        $adminEvent->setUsername('name');
-        $adminEvent->setEmail('email');
-        $formattedData = $adminEvent->getFormattedEventData();
-        $this->assertEquals($formattedData, 'username: name<br>email: email<br>');
-    }
-
 }

@@ -57,6 +57,7 @@
                     </order_saved_after_lifecycle_event>
                 </observers>
             </sales_order_save_after>
+
         </events>
     </global>
 </config>
