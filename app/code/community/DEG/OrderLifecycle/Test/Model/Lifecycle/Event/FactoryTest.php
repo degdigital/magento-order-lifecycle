@@ -13,6 +13,20 @@ class DEG_OrderLifecycle_Test_Model_Lifecycle_Event_FactoryTest extends EcomDev_
     public function testGetEventDataObjectAdmin()
     {
         $this->setCurrentStore(0);
+        $adminUser = new Varien_Object();
+        $adminUser->setId(1);
+        $adminUser->setUsername('username');
+        $adminUser->setEmail('email');
+        $adminUser->setFirstname('firstname');
+        $adminUser->setLastname('lastname');
+
+        $adminSessionMock = $this->getModelMockBuilder('admin/session')
+            ->disableOriginalConstructor() // This one removes session_start and other methods usage
+            ->setMethods(array('getUser')) // Enables original methods usage, because by default it overrides all methods
+            ->getMock();
+        $adminSessionMock->expects($this->any())->method('getUser')->will($this->returnValue($adminUser));
+        $this->replaceByMock('singleton', 'admin/session', $adminSessionMock);
+
         $factory = new DEG_OrderLifecycle_Model_Lifecycle_Event_Factory();
         $eventObject = $factory->getEventDataObject();
         $this->assertInstanceOf('DEG_OrderLifecycle_Model_Lifecycle_Event_Admin_Event',$eventObject);
