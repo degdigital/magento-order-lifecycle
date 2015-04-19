@@ -16,5 +16,47 @@
                 <class>DEG_OrderLifecycle_Model</class>
             </deg_orderlifecycle>
         </models>
+        <events>
+            <lifecycle_event>
+                <observers>
+                    <lifecycle_event_to_registry>
+                        <class>deg_orderlifecycle/observer</class>
+                        <method>lifecycleEventToRegistry</method>
+                    </lifecycle_event_to_registry>
+                </observers>
+            </lifecycle_event>
+            <sales_order_save_commit_after>
+                <observers>
+                    <order_saved_event_flush>
+                        <class>deg_orderlifecycle/observer</class>
+                        <method>orderSavedEventFlush</method>
+                    </order_saved_event_flush>
+                </observers>
+            </sales_order_save_commit_after>
+            <sales_order_invoice_save_commit_after>
+                <observers>
+                    <invoice_saved_event_flush>
+                        <class>deg_orderlifecycle/observer</class>
+                        <method>invoiceSavedEventFlush</method>
+                    </invoice_saved_event_flush>
+                </observers>
+            </sales_order_invoice_save_commit_after>
+            <sales_order_payment_save_commit_after>
+                <observers>
+                    <payment_saved_event_flush>
+                        <class>deg_orderlifecycle/observer</class>
+                        <method>paymentSavedEventFlush</method>
+                    </payment_saved_event_flush>
+                </observers>
+            </sales_order_payment_save_commit_after>
+            <sales_order_save_before>
+                <observers>
+                    <order_saved_before_lifecycle_event>
+                        <class>deg_orderlifecycle/hooks</class>
+                        <method>orderBeforeSaveLifecycleEvent</method>
+                    </order_saved_before_lifecycle_event>
+                </observers>
+            </sales_order_save_before>
+        </events>
     </global>
 </config>

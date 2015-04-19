@@ -22,11 +22,11 @@ class DEG_OrderLifecycle_Tests_Model_Write_Adapter_Order_HistoryTest extends Eco
         $history->expects($this->once())->method('setComment')->with($this->equalTo(''));
         $history->expects($this->once())->method('setIsCustomerNotified')->with($this->equalTo(0));
         $history->expects($this->once())->method('setIsVisibleOnFront')->with($this->equalTo(0));
-        $history->expects($this->once())->method('setEntityName')->with($this->equalTo(''));
+        $history->expects($this->once())->method('setEntityName')->with($this->equalTo('order'));
         $history->expects($this->once())->method('save');
         $this->replaceByMock('model', 'sales/order_status_history', $history);
 
-        $adapter->flush($order);
+        $adapter->flush($order, 'order');
     }
 
 

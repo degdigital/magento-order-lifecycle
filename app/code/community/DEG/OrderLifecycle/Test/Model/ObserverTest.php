@@ -14,7 +14,7 @@ class DEG_OrderLifecycle_Tests_Model_ObserverTest extends EcomDev_PHPUnit_Test_C
         $this->replaceByMock('model', 'deg_orderlifecycle/write_adapter_factory', $factory);
 
         $observerObject = new Varien_Event_Observer();
-        $observerObject->setObject($order);
+        $observerObject->setDataObject($order);
 
         $observer = new DEG_OrderLifecycle_Model_Observer();
         $observer->orderSavedEventFlush($observerObject);
@@ -34,7 +34,7 @@ class DEG_OrderLifecycle_Tests_Model_ObserverTest extends EcomDev_PHPUnit_Test_C
         $this->replaceByMock('model', 'deg_orderlifecycle/write_adapter_factory', $factory);
 
         $observerObject = new Varien_Event_Observer();
-        $observerObject->setObject($invoice);
+        $observerObject->setDataObject($invoice);
 
         $observer = new DEG_OrderLifecycle_Model_Observer();
         $observer->invoiceSavedEventFlush($observerObject);
@@ -55,7 +55,7 @@ class DEG_OrderLifecycle_Tests_Model_ObserverTest extends EcomDev_PHPUnit_Test_C
         $this->replaceByMock('model', 'deg_orderlifecycle/write_adapter_factory', $factory);
 
         $observerObject = new Varien_Event_Observer();
-        $observerObject->setObject($payment);
+        $observerObject->setDataObject($payment);
 
         $observer = new DEG_OrderLifecycle_Model_Observer();
         $observer->paymentSavedEventFlush($observerObject);
@@ -65,7 +65,7 @@ class DEG_OrderLifecycle_Tests_Model_ObserverTest extends EcomDev_PHPUnit_Test_C
     public function testLifecycleEventToRegistryNoCollection(){
         $event = new Varien_Object();
         $observerObject = new Varien_Event_Observer();
-        $observerObject->setEventData($event);
+        $observerObject->setDataObject($event);
 
         $collection = Mage::registry(DEG_OrderLifecycle_Model_Lifecycle_Event_Collection::REGISTRY_LIFECYCLE_EVENT_COLLECTION);
         $this->assertNull($collection);
@@ -78,7 +78,7 @@ class DEG_OrderLifecycle_Tests_Model_ObserverTest extends EcomDev_PHPUnit_Test_C
     public function testLifecycleEventToRegistryExistingCollection(){
         $event = new Varien_Object();
         $observerObject = new Varien_Event_Observer();
-        $observerObject->setEventData($event);
+        $observerObject->setDataObject($event);
         $collection = new DEG_OrderLifecycle_Model_Lifecycle_Event_Collection();
         $collection->addEvent($event);
         Mage::register(DEG_OrderLifecycle_Model_Lifecycle_Event_Collection::REGISTRY_LIFECYCLE_EVENT_COLLECTION, $collection);
