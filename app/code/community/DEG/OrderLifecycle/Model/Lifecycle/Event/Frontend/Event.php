@@ -6,7 +6,7 @@ class DEG_OrderLifecycle_Model_Lifecycle_Event_Frontend_Event extends DEG_OrderL
 
     protected function _initData()
     {
-        $remoteIp = Mage::helper('core/http')->getRemoteAddr(true);
+        $remoteIp = Mage::helper('core/http')->getRemoteAddr();
         $this->setRemoteIp($remoteIp);
     }
 

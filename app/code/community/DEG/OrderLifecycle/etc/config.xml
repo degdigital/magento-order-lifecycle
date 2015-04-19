@@ -60,4 +60,11 @@
 
         </events>
     </global>
+    <default>
+        <sales>
+            <order_lifecycle>
+                <adapter>deg_orderlifecycle/write_adapter_order_history</adapter>
+            </order_lifecycle>
+        </sales>
+    </default>
 </config>
