@@ -2,15 +2,12 @@
 
 class DEG_OrderLifecycle_Model_Lifecycle_Event_Frontend_Event extends DEG_OrderLifecycle_Model_Lifecycle_Event {
 
-    //Data:
+    protected $_eventType = 'Frontend';
+
     protected function _initData()
     {
-        // TODO: Implement init() method.
-    }
-
-    public function getFormattedEventData()
-    {
-        // TODO: Implement format() method.
+        $remoteIp = Mage::helper('core/http')->getRemoteAddr(true);
+        $this->setRemoteIp($remoteIp);
     }
 
 }
