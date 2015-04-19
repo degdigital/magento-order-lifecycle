@@ -16,6 +16,7 @@ class DEG_OrderLifecycle_Model_Write_Adapter_Order_History {
                 $history->setEntityName($historyEntity);
                 $history->save();
             }
+            Mage::unregister(DEG_OrderLifecycle_Model_Lifecycle_Event_Collection::REGISTRY_LIFECYCLE_EVENT_COLLECTION);
         }
     }
 }
