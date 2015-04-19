@@ -20,7 +20,7 @@ class DEG_OrderLifecycle_Model_Write_Adapter_Json_Post implements DEG_OrderLifec
                     ),
                 );
                 $context  = $this->_createContext($options);
-                $result = $this->_sendRequest($url, false, $context);
+                $result = $this->_sendRequest($url, $context);
             }
             Mage::unregister(DEG_OrderLifecycle_Model_Lifecycle_Event_Collection::REGISTRY_LIFECYCLE_EVENT_COLLECTION);
         }
