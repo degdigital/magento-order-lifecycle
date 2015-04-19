@@ -57,7 +57,39 @@
                     </order_saved_after_lifecycle_event>
                 </observers>
             </sales_order_save_after>
+            <sales_order_payment_capture>
+                <observers>
+                    <sales_order_payment_capture_lifecycle_event>
+                        <class>deg_orderlifecycle/hooks</class>
+                        <method>paymentCaptureLifecyceEvent</method>
+                    </sales_order_payment_capture_lifecycle_event>
+                </observers>
+            </sales_order_payment_capture>
 
+            <sales_order_payment_refund>
+                <observers>
+                    <sales_order_payment_refund_lifecycle_event>
+                        <class>deg_orderlifecycle/hooks</class>
+                        <method>paymentRefundLifecyceEvent</method>
+                    </sales_order_payment_refund_lifecycle_event>
+                </observers>
+            </sales_order_payment_refund>
+            <sales_order_invoice_register>
+                <observers>
+                    <sales_order_invoice_register_lifecycle_event>
+                        <class>deg_orderlifecycle/hooks</class>
+                        <method>invoiceCreatedLifecyceEvent</method>
+                    </sales_order_invoice_register_lifecycle_event>
+                </observers>
+            </sales_order_invoice_register>
+            <shipment_save_after>
+                <observers>
+                    <shipment_save_after_lifecycle_event>
+                        <class>deg_orderlifecycle/hooks</class>
+                        <method>shippmentCreatedLifecyceEvent</method>
+                    </shipment_save_after_lifecycle_event>
+                </observers>
+            </shipment_save_after>
         </events>
     </global>
     <default>
