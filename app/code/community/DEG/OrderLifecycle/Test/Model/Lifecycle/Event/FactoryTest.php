@@ -27,6 +27,12 @@ class DEG_OrderLifecycle_Test_Model_Lifecycle_Event_FactoryTest extends EcomDev_
         $adminSessionMock->expects($this->any())->method('getUser')->will($this->returnValue($adminUser));
         $this->replaceByMock('singleton', 'admin/session', $adminSessionMock);
 
+        $adminSessionQuoteMock = $this->getModelMockBuilder('adminhtml/session_quote')
+            ->disableOriginalConstructor() // This one removes session_start and other methods usage
+            ->setMethods(null) // Enables original methods usage, because by default it overrides all methods
+            ->getMock();
+        $this->replaceByMock('singleton', 'adminhtml/session_quote', $adminSessionQuoteMock);
+
         $factory = new DEG_OrderLifecycle_Model_Lifecycle_Event_Factory();
         $eventObject = $factory->getEventDataObject();
         $this->assertInstanceOf('DEG_OrderLifecycle_Model_Lifecycle_Event_Admin_Event',$eventObject);

@@ -68,6 +68,12 @@ class DEG_OrderLifecycle_Tests_Model_ObserverTest extends EcomDev_PHPUnit_Test_C
         $adminSessionMock->expects($this->any())->method('getUser')->will($this->returnValue($user));
         $this->replaceByMock('singleton', 'admin/session', $adminSessionMock);
 
+        $adminSessionQuoteMock = $this->getModelMockBuilder('adminhtml/session_quote')
+            ->disableOriginalConstructor() // This one removes session_start and other methods usage
+            ->setMethods(null) // Enables original methods usage, because by default it overrides all methods
+            ->getMock();
+        $this->replaceByMock('singleton', 'adminhtml/session_quote', $adminSessionQuoteMock);
+
         $event = new DEG_OrderLifecycle_Model_Lifecycle_Event_Admin_Event();
         $observerObject = new Varien_Event_Observer();
         $observerObject->setDataObject($event);
@@ -90,6 +96,12 @@ class DEG_OrderLifecycle_Tests_Model_ObserverTest extends EcomDev_PHPUnit_Test_C
             ->getMock();
         $adminSessionMock->expects($this->any())->method('getUser')->will($this->returnValue($user));
         $this->replaceByMock('singleton', 'admin/session', $adminSessionMock);
+
+        $adminSessionQuoteMock = $this->getModelMockBuilder('adminhtml/session_quote')
+            ->disableOriginalConstructor() // This one removes session_start and other methods usage
+            ->setMethods(null) // Enables original methods usage, because by default it overrides all methods
+            ->getMock();
+        $this->replaceByMock('singleton', 'adminhtml/session_quote', $adminSessionQuoteMock);
 
         $event = new DEG_OrderLifecycle_Model_Lifecycle_Event_Admin_Event();
         $observerObject = new Varien_Event_Observer();
