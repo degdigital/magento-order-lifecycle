@@ -82,14 +82,14 @@
                     </sales_order_invoice_register_lifecycle_event>
                 </observers>
             </sales_order_invoice_register>
-            <shipment_save_after>
+            <sales_order_shipment_save_after>
                 <observers>
                     <shipment_save_after_lifecycle_event>
                         <class>deg_orderlifecycle/hooks</class>
                         <method>shippmentCreatedLifecyceEvent</method>
                     </shipment_save_after_lifecycle_event>
                 </observers>
-            </shipment_save_after>
+            </sales_order_shipment_save_after>
         </events>
     </global>
     <default>
