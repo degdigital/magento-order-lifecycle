@@ -2,10 +2,10 @@
 
 class DEG_OrderLifecycle_Model_Observer {
 
-    public function lifecycleEventToRegistry($observer){
-        $event = Mage::getSingleton('deg_orderlifecycle/lifecycle_event_factory')->getEventDataObject();
-        $eventData = $observer->getEventData();
-        $event->setData($eventData->getData());
+    public function lifecycleEventToRegistry($event){
+        $lifecycleEvent = Mage::getSingleton('deg_orderlifecycle/lifecycle_event_factory')->getEventDataObject();
+        $eventData = $event->getDataObject();
+        $lifecycleEvent->setData($eventData->getData());
         $collection = Mage::registry(DEG_OrderLifecycle_Model_Lifecycle_Event_Collection::REGISTRY_LIFECYCLE_EVENT_COLLECTION);
         if (!$collection){
             $collection = Mage::getModel('deg_orderlifecycle/lifecycle_event_collection');
@@ -15,21 +15,21 @@ class DEG_OrderLifecycle_Model_Observer {
         Mage::register(DEG_OrderLifecycle_Model_Lifecycle_Event_Collection::REGISTRY_LIFECYCLE_EVENT_COLLECTION, $collection);
     }
 
-    public function orderSavedEventFlush($observer){
+    public function orderSavedEventFlush($event){
         $adapter = Mage::getSingleton('deg_orderlifecycle/write_adapter_factory')->getWriteAdapter();
-        $order = $observer->getObject();
-        $adapter->flush($order);
+        $order = $event->getDataObject();
+        $adapter->flush($order, 'order');
     }
 
-    public function invoiceSavedEventFlush($observer){
+    public function invoiceSavedEventFlush($event){
         $adapter = Mage::getSingleton('deg_orderlifecycle/write_adapter_factory')->getWriteAdapter();
-        $order = $observer->getObject()->getOrder();
-        $adapter->flush($order);
+        $order = $event->getDataObject()->getOrder();
+        $adapter->flush($order, 'invoice');
     }
 
-    public function paymentSavedEventFlush($observer){
+    public function paymentSavedEventFlush($event){
         $adapter = Mage::getSingleton('deg_orderlifecycle/write_adapter_factory')->getWriteAdapter();
-        $order = $observer->getObject()->getOrder();
-        $adapter->flush($order);
+        $order = $event->getDataObject()->getOrder();
+        $adapter->flush($order, 'payment');
     }
 }
