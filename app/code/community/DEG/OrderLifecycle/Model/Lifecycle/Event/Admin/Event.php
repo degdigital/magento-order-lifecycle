@@ -13,6 +13,12 @@ class DEG_OrderLifecycle_Model_Lifecycle_Event_Admin_Event extends DEG_OrderLife
         $this->setEmail($admin->getEmail());
         $this->setFirstname($admin->getFirstname());
         $this->setLastname($admin->getLastname());
+
+        $adminSessionQuote = Mage::getSingleton('adminhtml/session_quote');
+        if ($adminSessionQuote->getReordered()) {
+            $reorderId = $adminSessionQuote->getReordered();
+            $this->setReorderPreviousOrderId($reorderId);
+        }
     }
 
 }
