@@ -49,14 +49,14 @@
                     </payment_saved_event_flush>
                 </observers>
             </sales_order_payment_save_commit_after>
-            <sales_order_save_before>
+            <sales_order_save_after>
                 <observers>
-                    <order_saved_before_lifecycle_event>
+                    <order_saved_after_lifecycle_event>
                         <class>deg_orderlifecycle/hooks</class>
-                        <method>orderBeforeSaveLifecycleEvent</method>
-                    </order_saved_before_lifecycle_event>
+                        <method>orderAfterSaveLifecycleEvent</method>
+                    </order_saved_after_lifecycle_event>
                 </observers>
-            </sales_order_save_before>
+            </sales_order_save_after>
         </events>
     </global>
 </config>
