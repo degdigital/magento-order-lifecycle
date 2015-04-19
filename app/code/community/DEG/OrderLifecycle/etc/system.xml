@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<config>
+
+    <sections>
+        <sales>
+            <groups>
+                <order_lifecycle translate="label">
+                    <label>Order Lifecycle</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <adapter translate="label comment">
+                            <label>Event Writing Adapter</label>
+                            <comment>Controls how/where the event is written.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deg_orderlifecycle/system_config_source_adapter</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </adapter>
+                    </fields>
+                </order_lifecycle>
+            </groups>
+        </sales>
+    </sections>
+</config>

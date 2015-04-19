@@ -1,6 +1,9 @@
 <?php
 
 class DEG_OrderLifecycle_Model_Write_Adapter_Order_History implements DEG_OrderLifecycle_Model_Write_Adapter_Interface{
+
+    const ADAPTER_ORDER_HISTORY = 'deg_orderlifecycle/write_adapter_order_history';
+
     public function flush(Mage_Sales_Model_Order $order, $historyEntity){
         $collection = Mage::registry(DEG_OrderLifecycle_Model_Lifecycle_Event_Collection::REGISTRY_LIFECYCLE_EVENT_COLLECTION);
         //TODO wrap in a transaction
