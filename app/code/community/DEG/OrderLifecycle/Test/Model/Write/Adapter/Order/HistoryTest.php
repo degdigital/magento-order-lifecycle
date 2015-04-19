@@ -27,6 +27,9 @@ class DEG_OrderLifecycle_Tests_Model_Write_Adapter_Order_HistoryTest extends Eco
         $this->replaceByMock('model', 'sales/order_status_history', $history);
 
         $adapter->flush($order, 'order');
+
+        $this->assertNull(Mage::registry(DEG_OrderLifecycle_Model_Lifecycle_Event_Collection::REGISTRY_LIFECYCLE_EVENT_COLLECTION));
+
     }
 
 
