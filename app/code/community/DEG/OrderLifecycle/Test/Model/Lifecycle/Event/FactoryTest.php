@@ -34,6 +34,21 @@ class DEG_OrderLifecycle_Test_Model_Lifecycle_Event_FactoryTest extends EcomDev_
 
     public function testGetEventDataObjectApi()
     {
+        $this->setCurrentStore(0);
+        $adminUser = new Varien_Object();
+        $adminUser->setUserId(1);
+        $adminUser->setUsername('username');
+        $adminUser->setEmail('email');
+        $adminUser->setFirstname('firstname');
+        $adminUser->setLastname('lastname');
+
+        $apiSessionMock = $this->getModelMockBuilder('api/session')
+            ->disableOriginalConstructor() // This one removes session_start and other methods usage
+            ->setMethods(array('getUser')) // Enables original methods usage, because by default it overrides all methods
+            ->getMock();
+        $apiSessionMock->expects($this->any())->method('getUser')->will($this->returnValue($adminUser));
+        $this->replaceByMock('singleton', 'api/session', $apiSessionMock);
+
         $apiServerMock = $this->getModelMock('api/server', array('getAdapter'));
         $apiServerMock->expects($this->any())->method('getAdapter')->will($this->returnValue('api'));
         $this->replaceByMock('singleton', 'api/server', $apiServerMock);

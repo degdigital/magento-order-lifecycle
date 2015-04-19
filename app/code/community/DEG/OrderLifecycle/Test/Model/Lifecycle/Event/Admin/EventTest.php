@@ -6,7 +6,7 @@ class DEG_OrderLifecycle_Test_Model_Lifecycle_Event_Admin_EventTest extends Ecom
     {
         $this->setCurrentStore(0);
         $adminUser = new Varien_Object();
-        $adminUser->setId(1);
+        $adminUser->setUserId(1);
         $adminUser->setUsername('username');
         $adminUser->setEmail('email');
         $adminUser->setFirstname('firstname');
@@ -24,7 +24,15 @@ class DEG_OrderLifecycle_Test_Model_Lifecycle_Event_Admin_EventTest extends Ecom
 
         $this->assertEquals(1,$adminEvent->getUserId());
         $this->assertEquals('username',$adminEvent->getUsername());
-        $this->assertEquals('firstname',$adminEvent->getEmail());
+        $this->assertEquals('email',$adminEvent->getEmail());
+    }
+
+    public function testGetFormattedEventData()
+    {
+        $adminEvent = new DEG_OrderLifecycle_Model_Lifecycle_Event_Admin_Event();
+        $adminEvent->setUsername('name');
+        $formattedData = $adminEvent->getFormattedEventData();
+        $this->assertEquals($formattedData, 'username: name<br>');
     }
 
 }
