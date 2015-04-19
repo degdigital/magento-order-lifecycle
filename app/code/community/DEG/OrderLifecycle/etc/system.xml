@@ -22,6 +22,13 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </adapter>
+                        <post_url translate="label comment">
+                            <label>JSON Post Url</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </post_url>
                     </fields>
                 </order_lifecycle>
             </groups>
